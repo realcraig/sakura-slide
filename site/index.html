@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#8ccfea" />
+    <title>Sakura Slide</title>
+    <meta name="description" content="A peaceful downhill skateboarding adventure. Ride winding mountain roads, drift through cherry blossoms, and explore Hanasato Village. Play in your browser." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sakura Slide" />
+    <meta property="og:title" content="Sakura Slide" />
+    <meta property="og:description" content="A peaceful downhill skateboarding adventure. Ride winding mountain roads, drift through cherry blossoms, and explore Hanasato Village. Play in your browser." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://realcraig.github.io/sakura-slide/assets/images/sakura_slide_social_preview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1376" />
+    <meta property="og:image:height" content="768" />
+    <meta property="og:image:alt" content="Sakura Slide: Take the scenic route. A skater carves a cherry-blossom mountain road toward a village." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sakura Slide" />
+    <meta name="twitter:description" content="A peaceful downhill skateboarding adventure. Ride winding mountain roads, drift through cherry blossoms, and explore Hanasato Village. Play in your browser." />
+    <meta name="twitter:image" content="https://realcraig.github.io/sakura-slide/assets/images/sakura_slide_social_preview.png" />
+    <meta name="twitter:image:alt" content="Sakura Slide: Take the scenic route. A skater carves a cherry-blossom mountain road toward a village." />
+    <link rel="canonical" href="https://realcraig.github.io/sakura-slide/">
+    <meta property="og:url" content="https://realcraig.github.io/sakura-slide/">
+    <script type="module" crossorigin src="/sakura-slide/assets/index-CqiijAB8.js"></script>
+    <link rel="stylesheet" crossorigin href="/sakura-slide/assets/index-Bd9dhPz_.css">
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="game" aria-label="Sakura Slide game"></canvas>
+      <div id="vignette" aria-hidden="true"></div>
+      <section id="menu" class="panel menu-panel">
+        <p class="eyebrow">A quiet downhill journey</p>
+        <h1>Sakura Slide</h1>
+        <p class="lede">Choose a mountain road. All lead home.</p>
+        <div class="route-grid">
+          <button class="route-card sakura" data-route="sakura-ridge">
+            <span class="route-kicker">Open sky · cherry overlook</span>
+            <strong>Sakura Ridge</strong>
+            <span>Through steep blossom country.</span>
+          </button>
+          <button class="route-card hairpin" data-route="hairpin-pass">
+            <span class="route-kicker">Big switchbacks · northern peak</span>
+            <strong>Hairpin Pass</strong>
+            <span>Wide reversals descending from Mist Peak.</span>
+          </button>
+          <button class="route-card cedar" data-route="cedar-stream">
+            <span class="route-kicker">Rapid turns · forest stream</span>
+            <strong>Cedar Stream</strong>
+            <span>A fast line through repeated bends.</span>
+          </button>
+        </div>
+        <button id="startTown" class="town-start"><strong>Start in Hanasato Village</strong><span>Skip the descent and explore town immediately.</span></button>
+        <div class="menu-actions">
+          <button id="menuSettings" class="text-button">Settings</button>
+        </div>
+        <button id="resume" class="text-button hidden">Resume current journey</button>
+        <p class="menu-note">Arrows / WASD: ←/A →/D steer · ↓/S push · ↑/W ollie · Space/double-click slide · C camera · F inspect<br />Mobile: drag sideways to steer · swipe down to push · swipe up to ollie · double-tap to slide</p>
+      </section>
+      <canvas id="menuControls" class="menu-controls" role="menu" aria-label="Choose a route"></canvas>
+
+      <section id="hud" class="hidden" aria-live="polite">
+        <div class="hud-header">
+          <div class="hud-controls">
+            <button id="pause" class="round-button" aria-label="Pause">Ⅱ</button>
+            <button id="mapToggle" class="pill-button map-button" aria-label="Toggle mountain overview" aria-pressed="false">Map</button>
+          </div>
+          <div id="scoreDisplay" class="score-display" aria-label="Score 0, coins 0">
+            <img src="/sakura-slide/assets/images/stylized_sakura_coin.png" alt="" />
+            <span><small>RUN SCORE</small><strong id="scoreValue">0</strong><em id="coinCount" title="Saved coin wallet">0 coins</em></span>
+          </div>
+        </div>
+        <div class="hud-context">
+          <div id="routePosition" class="route-label" aria-label="Sakura Ridge, distance 0 meters" aria-live="off">
+            <strong id="routeLabel">Sakura Ridge</strong>
+            <div class="route-meta">
+              <span id="routeDistance" class="route-distance">0 / 0 m</span>
+              <small id="modeLabel">RIDING</small>
+            </div>
+          </div>
+          <button id="journalButton" class="pill-button journal-button" aria-label="Open keepsake journal, 0 keepsakes">Journal <span id="journalCount">0</span></button>
+        </div>
+        <button id="questTracker" class="quest-tracker hidden" aria-label="Open requests in your journal">
+          <small id="questTrackerLabel">VILLAGE REQUESTS</small>
+          <strong id="questTrackerTitle"></strong>
+          <span id="questTrackerDetail"></span>
+        </button>
+        <div id="hint" class="hint">←/A →/D steer · ↓/S push · ↑/W ollie · Space or double-click slide</div>
+        <button id="action" class="action-button hidden">Explore</button>
+        <div id="overviewLegend" class="overview-legend hidden">
+          <span class="sakura-key">Sakura Ridge</span>
+          <span class="hairpin-key">Hairpin Pass</span>
+          <span class="cedar-key">Cedar Stream</span>
+          <strong>Hanasato Village</strong>
+        </div>
+        <div id="rideTelemetry" class="ride-telemetry" aria-label="Speed 0 kilometers per hour">
+          <div id="speedFlower" class="speed-flower" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <span><small>SPEED</small><strong id="speedValue">0 km/h</strong></span>
+        </div>
+      </section>
+
+      <section id="pausePanel" class="panel compact hidden">
+        <p class="eyebrow">A small pause</p>
+        <h2 id="settingsTitle">Comfort & sound</h2>
+        <label>Steering <input id="steering" type="range" min="0.55" max="1.45" step="0.05" value="1" /></label>
+        <label>Camera motion <input id="motion" type="range" min="0" max="1" step="0.1" value="0.65" /></label>
+        <label>Music <input id="music" type="range" min="0" max="1" step="0.05" value="0.6" /></label>
+        <label>World sound <input id="sound" type="range" min="0" max="1" step="0.05" value="0.75" /></label>
+        <label class="check"><input id="reducedMotion" type="checkbox" /> Reduced motion</label>
+        <label>Quality
+          <select id="quality"><option value="auto">Auto</option><option value="high">High</option><option value="mobile">Mobile</option><option value="safe">Safe / diagnostic</option></select>
+        </label>
+        <div class="button-row"><button id="continue" class="primary-button">Continue</button><button id="restart">Restart road</button><button id="toMenu">Main menu</button></div>
+        <details class="scene-tools">
+          <summary>Scene tools</summary>
+          <div class="scene-telemetry"><span>Road gradient</span><strong id="gradientValue">0.0%</strong></div>
+          <div class="button-row">
+            <button id="cameraToggle" class="hidden" aria-label="Switch to top-down camera" aria-pressed="false">Top-down camera</button>
+            <button id="inspectionToggle" class="hidden" aria-label="Freeze and inspect the scene" aria-pressed="false">Inspect scene</button>
+          </div>
+        </details>
+      </section>
+
+      <section id="journal" class="panel journal-panel hidden">
+        <div class="journal-heading">
+          <div><p class="eyebrow">People and places along the way</p><h2>Village journal</h2></div>
+          <button id="closeJournal" class="primary-button" aria-label="Close journal">Close</button>
+        </div>
+        <p id="journalWallet" class="journal-wallet"></p>
+        <h3>Requests</h3>
+        <div id="questEntries" class="quest-entries"></div>
+        <h3>Little keepsakes</h3>
+        <div id="journalEntries" class="journal-entries"><p class="empty">Nothing collected yet. The road is in no hurry.</p></div>
+      </section>
+
+      <dialog id="npcDialogue" class="npc-dialogue" aria-labelledby="npcName" aria-describedby="npcWords">
+        <p id="npcRole" class="eyebrow"></p>
+        <h2 id="npcName"></h2>
+        <p id="npcWords"></p>
+        <section id="npcQuest" class="npc-quest hidden" aria-live="polite">
+          <strong id="npcQuestTitle"></strong>
+          <p id="npcQuestDetails"></p>
+          <span id="npcQuestReward"></span>
+        </section>
+        <div class="button-row">
+          <button id="npcQuestAction" class="primary-button hidden"></button>
+          <button id="closeNpcDialogue" autofocus>See you around</button>
+        </div>
+        <button id="npcQuestRoute" class="quest-route-button hidden"></button>
+      </dialog>
+
+      <div id="toast" class="toast hidden"></div>
+      <div id="fade" aria-hidden="true"></div>
+    </main>
+  </body>
+</html>

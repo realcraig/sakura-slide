@@ -1,0 +1,111 @@
+{
+  "project": "Sakura Slide",
+  "generatedOn": "2026-08-02",
+  "runtimeAssetPolicy": "Runtime hero objects, landscape silhouettes, vegetation, architecture, villagers, animals, vehicles, and interiors use project-owned Playbot-generated GLB meshes. Terrain, route ribbons, shaders, particles, lighting, and interaction animation control are authored in project source. Reference-board material is not shipped.",
+  "procedural": [
+    { "id": "terrain-heightfield-v4", "type": "mesh-shader", "source": "src/world.ts terrainHeight/addTerrain", "description": "Reachable steep mountain-valley terrain generated as a deterministic high-density mesh with slope-based rock and moss shading around two 2.1–2.2 km switchback routes." },
+    { "id": "country-road-v2", "type": "mesh-shader", "source": "src/world.ts createRoute/addRoad", "description": "Two terrain-conforming Catmull-Rom country-road meshes with shader-generated asphalt aggregate, patching, cracks, edge wear, and no lane stripes." },
+    { "id": "water-v2", "type": "mesh-shader", "source": "src/world.ts createPathRibbonGeometry/createWaterMaterial", "description": "Terrain-conforming stream ribbons with animated ripples, glints, bank fade, and fog integration." },
+    { "id": "blossom-vfx-v1", "type": "particle-shader", "source": "src/world.ts createBlossomField", "description": "Speed-reactive camera-local cherry blossom particle field using the generated petal sprite." },
+    { "id": "character-animation-v6", "type": "skeletal-animation", "source": "src/world.ts createRider/addVillage", "description": "One no-board skater rig with a valid walk clip, deterministic grounded ride/push/slide posing because the generator did not export named skating clips, and a separate ridden/carried board; rigged villagers use animation mixers." },
+    { "id": "ui-v1", "type": "dom-css", "source": "index.html and src/style.css", "description": "Original responsive menu, HUD, journal, comfort controls, and progress workbench." }
+  ],
+  "generatedModels": [
+    { "path": "models/skater_character_animated_v4.glb", "generationId": "2FPvRhul3utWEru4I6ML9", "batchId": "1a104641-48e1-4d5a-8d20-6b930118093f", "usage": "Current single no-board skinned hero mesh selected by live screenshot A/B; one visible SkinnedMesh with no external rig geometry. Export contains base, walk, and run clips; skating poses are authored at runtime." },
+    { "path": "models/skater_character_clean_v3.glb", "generationId": "cjvHf8HliKhJt4llcFgxN", "batchId": "7e37be22-8c4a-4603-a412-06697519f3c2", "usage": "Previous clean no-board rig retained as a fallback; replaced at runtime after the v4 screenshot A/B produced a stronger skating silhouette." },
+    { "path": "models/skateboard.glb", "generationId": "6WtmJzeOb7Falhym3WaVA", "batchId": "f0fd85de-26d6-4e78-804c-86f65df5b140", "usage": "Independent ridden/carried longboard mesh." },
+    { "path": "models/sakura_tree.glb", "generationId": "mLllQQHkXGVmmPgOSLZF0", "batchId": "ef54c2cd-f79c-4cf8-a2f8-68c666723949" },
+    { "path": "models/cedar_tree.glb", "generationId": "eeYoaCB5JK641wFVaJnog", "batchId": "f0fd85de-26d6-4e78-804c-86f65df5b140" },
+    { "path": "models/flowering_bush.glb", "generationId": "KVg6_nHW2LPfan46lLUt0", "batchId": "f0fd85de-26d6-4e78-804c-86f65df5b140" },
+    { "path": "models/wildflower_cluster.glb", "generationId": "DJdfMuHyVHsQj7MZL0Lbd", "batchId": "f0fd85de-26d6-4e78-804c-86f65df5b140" },
+    { "path": "models/mountain_ridge_a.glb", "generationId": "cz5cj5UEnXlGzD2N4mF5B", "batchId": "ef54c2cd-f79c-4cf8-a2f8-68c666723949" },
+    { "path": "models/mountain_ridge_b.glb", "generationId": "rwtaluo9t_gMpPyemwh1Y", "batchId": "ef54c2cd-f79c-4cf8-a2f8-68c666723949" },
+    { "path": "models/terrain_slope.glb", "generationId": "XfPtOwJ65tuB4CLQv6Jyx", "batchId": "ef54c2cd-f79c-4cf8-a2f8-68c666723949" },
+    { "path": "models/reference_mountain_massif.glb", "generationId": "-yuP7rw4SKGi___eX-yJa", "batchId": "ece25e9e-82e7-4bec-85a6-3ae82b43628b", "usage": "Reference-guided 3D mountain framing mesh." },
+    { "path": "models/roadside_cliff_outcrop.glb", "generationId": "_kniApxMEzOx3is_o3-KD", "batchId": "ece25e9e-82e7-4bec-85a6-3ae82b43628b", "usage": "Road-facing cliff and mountain-cut mesh." },
+    { "path": "models/weathered_guardrail.glb", "generationId": "wouimg926dwGDfQs5fOhC", "batchId": "ece25e9e-82e7-4bec-85a6-3ae82b43628b", "usage": "Short weathered country-road guardrail sections." },
+    { "path": "models/dense_roadside_groundcover.glb", "generationId": "-vjAp6uMrpXGlByloV8lk", "batchId": "ece25e9e-82e7-4bec-85a6-3ae82b43628b", "usage": "Dense roadside foliage clusters." },
+    { "path": "models/dense_cedar_forest_cluster.glb", "generationId": "A6Ik06RGavZvKlUceinVT", "batchId": "b1be400c-9cf1-40f3-8aa9-b5adc34a06c5", "usage": "Single-mesh mid/far cedar canopy clusters used to increase forest mass efficiently." },
+    { "path": "models/mixed_spring_forest_cluster.glb", "generationId": "CnUsMWDfnbAKF38muPaJC", "batchId": "b1be400c-9cf1-40f3-8aa9-b5adc34a06c5", "usage": "Single-mesh mixed cedar and blossom canopy clusters used sparingly on Sakura Ridge." },
+    { "path": "models/japanese_utility_pole.glb", "generationId": "1YEV0vMdZi-7_j6mNJ6gv", "batchId": "31d0b4ef-4860-484d-a87e-128d84031882", "usage": "Detailed utility infrastructure placed along village streets." },
+    { "path": "models/stone_irrigation_channel.glb", "generationId": "cXXk50_M2lOjDlr7a1ajB", "batchId": "31d0b4ef-4860-484d-a87e-128d84031882", "usage": "Repeatable mossy roadside drainage segments along village roads." },
+    { "path": "models/village_produce_stall.glb", "generationId": "UAprN-RfTe_je42LlUOu2", "batchId": "31d0b4ef-4860-484d-a87e-128d84031882", "usage": "Detailed roadside produce stall on the western village loop." },
+    { "path": "models/roadside_shrine_corner.glb", "generationId": "k2XWKg4G9OMlJETikoaCI", "batchId": "31d0b4ef-4860-484d-a87e-128d84031882", "usage": "Compact shrine garden anchoring the eastern village loop." },
+    { "path": "models/tea_house.glb", "generationId": "wNDCuWpiI_nvDX47JFBTo", "batchId": "ef54c2cd-f79c-4cf8-a2f8-68c666723949" },
+    { "path": "models/village_shop.glb", "generationId": "EA-0D7sBNDbNC4VdmPlEa", "batchId": "ef54c2cd-f79c-4cf8-a2f8-68c666723949" },
+    { "path": "models/village_house.glb", "generationId": "iho30WKfDv4oZ6AUkikII", "batchId": "a7c1a284-aed2-4d7c-bf3b-7d7209720200" },
+    { "path": "models/tea_house_interior.glb", "generationId": "O5bfHECYdEGa27CU6p7CR", "batchId": "a7c1a284-aed2-4d7c-bf3b-7d7209720200" },
+    { "path": "models/shop_interior.glb", "generationId": "I4LZYta6N0LTzA-ZvTtXS", "batchId": "a7c1a284-aed2-4d7c-bf3b-7d7209720200" },
+    { "path": "models/villager_indigo.glb", "generationId": "kjh3z4WpwdVgR5ghKkCTc", "batchId": "f0fd85de-26d6-4e78-804c-86f65df5b140", "usage": "Rigged villager with idle/walk clips." },
+    { "path": "models/villager_ochre.glb", "generationId": "w52caI2BCe9ZWYGaQz1us", "batchId": "f0fd85de-26d6-4e78-804c-86f65df5b140", "usage": "Rigged villager with idle/walk clips." },
+    { "path": "models/village_cat.glb", "generationId": "YNEANkU4KpHq-4ruqu9I7", "batchId": "26178f5a-f854-45c1-8c89-e7267c17f061" },
+    { "path": "models/village_dog.glb", "generationId": "McKdl8qAhttvS3T4qXAjN", "batchId": "26178f5a-f854-45c1-8c89-e7267c17f061" },
+    { "path": "models/tiny_village_car.glb", "generationId": "_1jNXQIVEgKedSf_fvuTF", "batchId": "ef54c2cd-f79c-4cf8-a2f8-68c666723949" },
+    { "path": "models/torii_shrine.glb", "generationId": "XfkaW0soceP7KWfYlFZH8", "batchId": "ef54c2cd-f79c-4cf8-a2f8-68c666723949" },
+    { "path": "models/wooden_bridge.glb", "generationId": "xgM-8kI7FN0NGQie-TBsL", "batchId": "ef54c2cd-f79c-4cf8-a2f8-68c666723949" }
+  ],
+  "generatedAudio": [
+    { "path": "audio/descent_music.mp3", "generationId": "wXjHTTItukayow7PRRMCA", "model": "fal-ai/elevenlabs/music", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/village_music.mp3", "generationId": "Wx76xpmmqqs1fKt6oNQDZ", "model": "fal-ai/elevenlabs/music", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/wheel_road_loop.mp3", "generationId": "foA1YBrGxqN3T0Dg6Bw-_", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/slide_friction_loop.mp3", "generationId": "Fxk43gIbEBLMAmWWE3zSV", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/spring_wind_loop.mp3", "generationId": "ASAysDcgHa-RZzx8Ow9HI", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/birds_insects_loop.mp3", "generationId": "-1btBwW43AHoaHTFmehgD", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/stream_loop.mp3", "generationId": "_7kJX-maYK19aupfacevf", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/village_ambience_loop.mp3", "generationId": "sndOeWO-vMKdTQMWmdtxo", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/door_interior_transition.mp3", "generationId": "DJYOFYwFy2YJLaGeBQc_X", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/cat_greeting.mp3", "generationId": "wUlNNb9Gai5xbiNcf24wt", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/dog_greeting.mp3", "generationId": "DPaC9rUn6PaRwZkSvI65Q", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" },
+    { "path": "audio/cloth_board_movement.mp3", "generationId": "oKJP87PhYxhaqx4xiHEd0", "model": "fal-ai/elevenlabs/sound-effects/v2", "batchId": "f7e920ba-3456-4076-9bcb-4e33a5e260bb" }
+  ],
+  "generatedImages": [
+    {
+      "path": "images/distant_mountain_panorama.png",
+      "generationId": "3-Gqp-8VYHJj8tSHlNDpP",
+      "title": "Cobalt Cloud Horizon",
+      "model": "fal-ai/nano-banana-pro",
+      "batchId": "f604364f-faa1-4d98-99ee-c5e796395b52",
+      "createdAt": "2026-08-01T21:50:12.569Z",
+      "completedAt": "2026-08-01T21:50:31.804Z",
+      "aspectRatio": "16:9",
+      "transparent": false,
+      "linkedReference": "/Users/craig/.playbot/attachments/ae87bd41-image.png",
+      "usage": "Unreachable distant scenery only. The prompt explicitly excluded the linked rider, road, UI, characters, and identifiable location."
+    },
+    {
+      "path": "images/cherry_petal_sprite.png",
+      "generationId": "_Z5USMf1vBBtNEtZWYy6w",
+      "batchId": "26178f5a-f854-45c1-8c89-e7267c17f061",
+      "transparent": true,
+      "usage": "Texture sampled by the camera-local blossom particle shader."
+    },
+    {
+      "path": "images/skater_no_board_rig_reference.png",
+      "generationId": "kumfZm3WFQirpwdbKrgqT",
+      "batchId": "3e299bdc-9bcc-475c-8ee2-7a57605f473f",
+      "transparent": true,
+      "usage": "Clean A-pose, no-board character reference used to generate the final rigged hero mesh; not rendered at runtime."
+    }
+  ],
+  "rejectedPrototypes": [
+    { "generationId": "ThfvK5MM1gNVwF3a2QTnj", "reason": "Board was baked into the skinned character mesh; replaced by the character-only A-pose-to-rig pipeline." },
+    { "generationId": "0XjEu44amRrkohmVevJcs", "reason": "Earlier no-board rig was structurally valid but its integrated clip/offset combination could lift or invert the rider; replaced by the final rig and stable grounded pose controller." },
+    { "generationId": "V0-Y7V2Esnlbi5yILqwsD", "reason": "Static riding-pose experiment rejected in favor of one rigged mesh." },
+    { "generationId": "Ib3wjYX3N6tNbhh-pl75a", "reason": "Static walking-pose experiment rejected in favor of one rigged mesh." },
+    { "generationId": "o21jG7926mGHJ4Ksj-Yb5", "reason": "Regenerated no-board rig rejected after direct GLB inspection showed only a generic base clip plus walk/run instead of the requested crouch/push/slide animations; runtime path was reverted." },
+    { "generationId": "19aCydZ7uUigENmRhlPzV", "reason": "Previous runtime hero replaced after the visible result showed rig-like external artifacts and an unstable riding silhouette." },
+    { "generationId": "Nl8IuFo5OKlcIzzeIxWQW", "reason": "Reference-guided forest-slope module read as oversized floating chunks during screenshot comparison and was removed from runtime." },
+    { "generationId": "tV8MULmHwDJn5ITE1UY9P", "reason": "Second cut-slope module still rendered as disconnected floating slabs during screenshot comparison and was removed from runtime." },
+    { "generationId": "cz5cj5UEnXlGzD2N4mF5B", "reason": "Legacy ridge mesh no longer conformed after the steep terrain rebuild and was removed from runtime." },
+    { "generationId": "rwtaluo9t_gMpPyemwh1Y", "reason": "Legacy ridge mesh no longer conformed after the steep terrain rebuild and was removed from runtime." },
+    { "generationId": "XfPtOwJ65tuB4CLQv6Jyx", "reason": "Repeated terrain-slope placement produced visible floating slabs and was removed from runtime." },
+    { "generationId": "-yuP7rw4SKGi___eX-yJa", "reason": "Massif placement produced detached scenery after the valley rebuild and was removed from runtime." },
+    { "generationId": "_kniApxMEzOx3is_o3-KD", "reason": "Roadside outcrop repetition failed the visual reference gate and was removed from runtime." },
+    { "generationId": "ayq2hbp8fcdITTzJJ_nVp", "reason": "Panorama-derived valley rim rendered as a dark overhanging mass that destroyed the bright village lighting; replaced by an authored terrain mesh." },
+    { "generationId": "KyN00CLy1TPI3MVUtf52F", "reason": "Repeated retaining-wall modules read as oversized disconnected props in the road screenshots; replaced by continuous terrain-conforming wall meshes with procedural concrete and moss shading." }
+  ],
+  "referenceOnly": [
+    { "path": "/Users/craig/.playbot/attachments/ae87bd41-image.png", "usage": "Non-shipping composition and mood reference." },
+    { "path": "docs/reference-board.md", "usage": "External comparison links only; no referenced asset is copied into runtime." }
+  ]
+}
