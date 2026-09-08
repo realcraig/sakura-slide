@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="preload" href="/sakura-slide/assets/playbot-mark.svg" as="image" type="image/svg+xml" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#8ccfea" />
@@ -23,11 +24,18 @@
     <meta name="twitter:image:alt" content="Sakura Slide: Take the scenic route. A skater carves a cherry-blossom mountain road toward a village." />
     <link rel="canonical" href="https://realcraig.github.io/sakura-slide/">
     <meta property="og:url" content="https://realcraig.github.io/sakura-slide/">
-    <script type="module" crossorigin src="/sakura-slide/assets/index-DDIwG_jN.js"></script>
-    <link rel="stylesheet" crossorigin href="/sakura-slide/assets/index-Bd9dhPz_.css">
+    <script type="module" crossorigin src="/sakura-slide/assets/index-CoZOS9Aw.js"></script>
+    <link rel="stylesheet" crossorigin href="/sakura-slide/assets/index-B0uquoY_.css">
   </head>
   <body>
-    <main id="app">
+    <div id="startup-loading" role="status">Loading…</div>
+    <div id="playbot-splash" role="img" aria-label="Made with Playbot">
+      <div id="playbot-brand" aria-hidden="true">
+        <div class="playbot-caption">Made with</div>
+        <div class="playbot-row"><img src="/sakura-slide/assets/playbot-mark.svg" alt="" width="72" height="72" /><span>play.bot</span></div>
+      </div>
+    </div>
+    <main id="app" inert style="visibility: hidden">
       <canvas id="game" aria-label="Sakura Slide game"></canvas>
       <div id="vignette" aria-hidden="true"></div>
       <section id="menu" class="panel menu-panel">

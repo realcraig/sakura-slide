@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect width="100" height="100" rx="20" fill="#0d1117"/>
+  <!-- Scale around the tile center, then shift left 5 units for optical balance. -->
+  <g transform="translate(0 5) scale(0.9)">
+    <path d="M10 46L92 10L37 61Z" fill="#FFD54F"/>
+    <path d="M37 61L92 10L57 74L42 90Z" fill="#FFCA28"/>
+    <path d="M57 74L92 10L77 88Z" fill="#FFC107"/>
+  </g>
+</svg>
